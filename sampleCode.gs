@@ -5,7 +5,7 @@ function comparison(){
   };
 
   const kintoneManager = new KintoneManager(subdomain, apps);
-  const kintoneRedordManager = new KintoneRedordManager(subdomain, apps);
+  const kintoneRecordManager = new KintoneRecordManager(subdomain, apps);
   return
 }
 
@@ -49,7 +49,7 @@ function kintoneCreate2() {
     YOUR_APPLICATION1: { appid: 2, name: "アプリ１", token: PROP.get("KINTONE_TOKEN") },
   };
 
-  var kintoneManagerClass = new KintoneRedordManager(subdomain, apps);
+  var kintoneManagerClass = new KintoneRecordManager(subdomain, apps);
 
 
   var records = [

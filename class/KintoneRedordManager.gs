@@ -1,5 +1,5 @@
 'use strict'
-class KintoneRedordManager {
+class KintoneRecordManager {
   /**
    * 
    * @constructor

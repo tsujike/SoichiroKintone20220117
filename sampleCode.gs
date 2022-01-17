@@ -1,23 +1,43 @@
 
-function testcode(){
+function testcode() {
   const subdomain = "2qhz9ej1wltp";
   const apps = {
     YOUR_APPLICATION1: { appid: 2, name: "テストアプリ", token: PROP.get("KINTONE_TOKEN") },
   };
   var kintone_manager = new KintoneRecordManager(subdomain, apps);
-  const searchresponse = kintone_manager.search("YOUR_APPLICATION1","")
+  const searchresponse = kintone_manager.search("YOUR_APPLICATION1", "")
   console.log(searchresponse.records[[0]]);
   const record = searchresponse.records[[0]];
 
-  const keys = Object.keys(record);
-  console.log(keys)
+  // const keys = Object.keys(record);
+  // console.log(keys)
   //console.log(searchresponse)
 
-  for (const [key, value] of Object.entries(object1)) {}
-  for(const prop in record){
-    console.log(prop.type)
+  for (const [key, value] of Object.entries(record)) {
 
-  } 
+    delete value.type;
+
+    //決まったプロパティ
+    delete record['レコード番号'];
+    delete record['更新者'];
+    delete record['作成者'];
+    delete record['$revision'];
+    delete record['更新日時'];
+    delete record['作成日時'];
+    delete record['$id'];
+
+  }
+
+  console.log(record); //	{ name: { value: 'soichiro' }, food: { value: 'ヨーグルト' } }
+
+
+  /*
+
+  */
+
+  // for(const prop in record){
+  //   console.log(prop.type)
+  // } 
 
 }
 // { 'レコード番号': { type: 'RECORD_NUMBER', value: '38' },
@@ -45,7 +65,7 @@ function testcode(){
 //   '$id' ]
 
 
-function comparison(){
+function comparison() {
   var subdomain = "2qhz9ej1wltp";
   var apps = {
     YOUR_APPLICATION1: { appid: 2, name: "テストアプリ", token: PROP.get("KINTONE_TOKEN") },
@@ -118,14 +138,14 @@ function kintoneCreate2() {
     },
   ];
   var createResponse = kintoneManagerClass.create("YOUR_APPLICATION1", records);
-  let ids =createResponse.ids
+  let ids = createResponse.ids
 
   // ステータスコード
   // 成功すれば200になる
 
 
-  const searchresponse = kintoneManagerClass.search("YOUR_APPLICATION1","")
-  const deleteresponse = kintoneManagerClass.destroy("YOUR_APPLICATION1",ids)
+  const searchresponse = kintoneManagerClass.search("YOUR_APPLICATION1", "")
+  const deleteresponse = kintoneManagerClass.destroy("YOUR_APPLICATION1", ids)
 
   return
 

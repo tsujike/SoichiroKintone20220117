@@ -6,20 +6,43 @@ function testcode(){
   };
   var kintone_manager = new KintoneRecordManager(subdomain, apps);
   const searchresponse = kintone_manager.search("YOUR_APPLICATION1","")
+  console.log(searchresponse.records[[0]]);
+  const record = searchresponse.records[[0]];
 
-  console.log(searchresponse)
+  const keys = Object.keys(record);
+  console.log(keys)
+  //console.log(searchresponse)
+
+  for (const [key, value] of Object.entries(object1)) {}
+  for(const prop in record){
+    console.log(prop.type)
+
+  } 
 
 }
-// 情報	{ records: 
-//    [ { 'レコード番号': [Object],
-//        '更新者': [Object],
-//        '作成者': [Object],
-//        name: [Object],
-//        '$revision': [Object],
-//        '更新日時': [Object],
-//        '作成日時': [Object],
-//        food: [Object],
-//        '$id': [Object] },
+// { 'レコード番号': { type: 'RECORD_NUMBER', value: '38' },
+//   '更新者': 
+//    { type: 'MODIFIER',
+//      value: { code: 'Administrator', name: 'Administrator' } },
+//   '作成者': 
+//    { type: 'CREATOR',
+//      value: { code: 'Administrator', name: 'Administrator' } },
+//   name: { type: 'SINGLE_LINE_TEXT', value: 'soichiro' },
+//   '$revision': { type: '__REVISION__', value: '1' },
+//   '更新日時': { type: 'UPDATED_TIME', value: '2022-01-16T21:56:00Z' },
+//   '作成日時': { type: 'CREATED_TIME', value: '2022-01-16T21:56:00Z' },
+//   food: { type: 'SINGLE_LINE_TEXT', value: 'ヨーグルト' },
+//   '$id': { type: '__ID__', value: '38' } }
+
+// [ 'レコード番号',
+//   '更新者',
+//   '作成者',
+//   'name',
+//   '$revision',
+//   '更新日時',
+//   '作成日時',
+//   'food',
+//   '$id' ]
 
 
 function comparison(){
